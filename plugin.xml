@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="co.ios.pushy"
+        version="0.0.1">
+    <name>Pushy</name>
+    <description>Cordova Pushy Notification Plugin</description>
+    <author>Sreenivas</author>
+    <license>Apache 2.0</license>
+    <keywords>cordova,pushy,push</keywords>
+
+    <js-module src="www/pushy.js" name="Pushy">
+        <clobbers target="plugin.pushy" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+			<feature name="PushyNotificationPlugin">
+				<param name="ios-package" value="PushyNotificationPlugin" />
+			</feature>
+        </config-file>
+        
+		<header-file src="src/ios/AppDelegate+pushyNotificationPlugin.h" />		
+        <source-file src="src/ios/AppDelegate+pushyNotificationPlugin.m" />
+		
+		<header-file src="src/ios/PushyNotificationPlugin.h" />
+        <source-file src="src/ios/PushyNotificationPlugin.m" />
+	    <framework src="Pushy" type="podspec" spec="~>1.0.4"/>
+        
+    </platform>
+</plugin>
+	
